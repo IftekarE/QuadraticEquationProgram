@@ -1,25 +1,77 @@
 .BuildArea{
-    width: 1920px;
-    height: 938px;
-    background-color: rosybrown;
+    width: 1905px;
+    height: 920px;
+    background-color: #5d8aa8;
+    position: absolute;
+    border-radius: 20px;
 }
-.InputArea{
+.I{
     width: 250px;
     height: 500px;
-    background-color: pink;
+    background-color: #d8d8d8;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    margin-top: -250px;
+    margin-left: -260px;
+    border-radius: 20px;
 }
-.GraphArea{
+.G{
     width: 500px;
     height: 500px;
-    background-color: salmon;
+    background-color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -250px;
+    margin-left: -250px;
+    border-radius: 10px;
 }
-.OutputArea{
+.O{
     width: 250px;
     height: 500px;
-    background-color: purple;
+    background-color: #d8d8d8;
+    position: absolute;
+    left: 75%;
+    top: 50%;
+    margin-top: -250px;
+    border-radius: 20px;
 }
-.button1{
+.B{
     width: 250px;
     height: 50px;
-    background-color: white;
+    background-color: #2b579a ;
+    position: absolute;
+    left: 25%;
+    top: 75%;
+    margin-left: -260px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+button{
+    width: 250px;
+    height: 50px;
+    background-color: #2b579a ;
+    position: absolute;
+    border-radius: 10px;
+    font-size: 15px;
+    border: none;
+    color: whitesmoke;
+}
+button:hover{/*this is what changes th color of the buttons when hovered on*/
+    color: rgb(245,193,113);
+}
+button:focus{/*this gets rid of button borders*/
+    outline:0;  
+}
+button:active{/*this is waht temporarly changes button colors when clicked on*/
+    color: #ff6a6a;     
+}
+p{
+    font-size: 20px;
+    margin-left: 100px;
+}
+ul{
+    list-style: none;
+    padding-left: 20px;
 }

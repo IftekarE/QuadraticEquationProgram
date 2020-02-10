@@ -75,3 +75,6 @@ ul{
     list-style: none;
     padding-left: 20px;
 }
+#nameuser{
+    border-radius: 5px;
+}

@@ -1,0 +1,25 @@
+.BuildArea{
+    width: 1920px;
+    height: 938px;
+    background-color: rosybrown;
+}
+.InputArea{
+    width: 250px;
+    height: 500px;
+    background-color: pink;
+}
+.GraphArea{
+    width: 500px;
+    height: 500px;
+    background-color: salmon;
+}
+.OutputArea{
+    width: 250px;
+    height: 500px;
+    background-color: purple;
+}
+.button1{
+    width: 250px;
+    height: 50px;
+    background-color: white;
+}

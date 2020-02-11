@@ -48,7 +48,7 @@
     margin-top: 50px;
     border-radius: 10px;
 }
-button{
+#button{
     width: 250px;
     height: 50px;
     background-color: #2b579a ;
@@ -58,13 +58,13 @@ button{
     border: none;
     color: whitesmoke;
 }
-button:hover{/*this is what changes th color of the buttons when hovered on*/
+#button:hover{/*this is what changes th color of the buttons when hovered on*/
     color: rgb(245,193,113);
 }
-button:focus{/*this gets rid of button borders*/
+#button:focus{/*this gets rid of button borders*/
     outline:0;  
 }
-button:active{/*this is waht temporarly changes button colors when clicked on*/
+#button:active{/*this is waht temporarly changes button colors when clicked on*/
     color: #ff6a6a;     
 }
 p{

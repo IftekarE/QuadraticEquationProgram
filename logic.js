@@ -1,3 +1,4 @@
+//Variables initlazing START
 var hold1 = 0;
 var hold2 = 0;
 var hold3 = 0;
@@ -14,8 +15,10 @@ var num_of_roots = 0;
 var type_of_root = 0;
 var root1 = 0;
 var root2 = 0;
+//Variables initlazing END 
 
-function clear(){
+//Clearing variables START
+function clear(){//this function is setting all variables to 0 
     hold1 = 0;
     hold2 = 0;
     hold3 = 0;
@@ -33,88 +36,109 @@ function clear(){
     root1 = 0;
     root2 = 0; 
 }
+//Clearing variables END
+
+//Checking for input START
 function Acheck(inputtxt){
     temp1 = inputtxt.value;
-    if(inputtxt.value.length == 0){
-        alert("The A input cannot be blank");
+    if(inputtxt.value.length == 0){//checking if the input is blank  
+        meshold0 = "The A input cannot be blank";
+        notifications();
     }else{
-        if(temp1 == 0){
-            alert("The A input cannot be 0");
+        if(temp1 == 0){//checking if the A input is blank
+            meshold0 = "The A input cannot be 0";
+            notifications();
         }else{
-            var letters = /^[A-Za-z]+$/;
+            var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
             if(inputtxt.value.match(letters)){
-                alert("The input can only be a negative or positive integer");
+                meshold0 = "The input can only be a negative or positive integer";
+                alert("error");
+                notifications();
             }else{
-                if(temp1 % 2 == 0){
+                if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
                     a = temp1;
-                    alert("a is " + a);
                 }else{
                     if(temp1 % 2 == 1){
                         a = temp1;
-                        alert("a is " + a);
                     }else{
-                        alert("The input can only be a whole number");
+                        meshold0 = "The input can only be a whole number";
+                        notifications();
                     }
                 }
             }
         }
     }
 }
-
 function Bcheck(inputtxt){
     temp1 = inputtxt.value;
     if(inputtxt.value.length == 0){
-        alert("The B input cannot be blank");
+        meshold0 = "The B input cannot be blank";
+        notifications();
     }else{
         if(temp1 == 0){
             b = temp1;
-            alert("b is " + b);
+            meshold0 = ("b is " + b);
+            notifications();
         }else{
             var letters = /^[A-Za-z]+$/;
             if(inputtxt.value.match(letters)){
-                alert("The input can only be a negative or positive integer");
+                meshold0 = "The input can only be a negative or positive integer";
+                notifications();
             }else{
                 if(temp1 % 2 == 0){
                     b = temp1;
-                    alert("b is " + b);
                 }else{
                     if(temp1 % 2 == 1){
                         b = temp1;
-                        alert("b is " + b);
                     }else{
-                        alert("The input can only be a whole number");
+                        meshold0 = "The input can only be a whole number";
+                        notifications();
                     }
                 }
             }
         }
     }
 }
-
 function Ccheck(inputtxt){
     temp1 = inputtxt.value;
     if(inputtxt.value.length == 0){
-        alert("The C input cannot be blank");
+        meshold0 = "The C input cannot be blank";
+        notifications();
     }else{
         if(temp1 == 0){
             c = temp1;
-            alert("c is " + c);
+            meshold0 = "c is " + c;
+            notifications();
         }else{
             var letters = /^[A-Za-z]+$/;
             if(inputtxt.value.match(letters)){
-                alert("The input can only be a negative or positive integer");
+                meshold0 = "The input can only be a negative or positive integer";
+                notifications();
             }else{
                 if(temp1 % 2 == 0){
                     c = temp1;
-                    alert("c is " + c);
                 }else{
                     if(temp1 % 2 == 1){
                         c = temp1;
-                        alert("c is " + c);
                     }else{
-                        alert("The input can only be a whole number");
+                        meshold0 = "The input can only be a whole number";
+                        notifications();
                     }
                 }
             }
         }
     }
 }
+//Checking for input END
+
+//setting the resutlts to the message board START 
+function setto(){
+    meshold1 = vertex;
+    meshold2 = AOS;
+    meshold3 = num_of_roots;
+    meshold4 = type_of_root;
+    meshold5 = root1;
+    meshold6 = root2;
+    results();
+}
+//setting the resutlts to the message board END 

@@ -17,8 +17,6 @@ var root1 = 0;
 var root2 = 0;
 var x = 0;
 var y = 0;
-
-
 //Variables initlazing END 
 
 //Clearing variables START
@@ -30,6 +28,7 @@ function clear(){//this function is setting all variables to 0
     temp1 = 0;
     temp2 = 0;
     temp3 = 0;
+    temp4 = 0;
     a = 0;
     b = 0;
     c = 0;
@@ -171,14 +170,72 @@ function veraos(){//this program is finding the vertex
     hold1 = b * -1;//multipling b by -1 
     hold2 = a * 2;// multiplying a by 2 
     x = hold1 / hold2;//this formula represents b * -1 / 2a
+    x = Math.round(x * 100) / 100;//rounding aos to 2 decimal places 
     AOS = x;// the x value of the vertex is the AOS 
     temp1 = x * x;//x is multiplying by x to represent x^2
     temp1 = a * temp1;//x * temp1 representing ax^2
     temp2 = b * x;//representing b*x
     y = temp1 + temp2 + c;//this represents my formula y = ax^2 + bx + c
+    y = Math.round(y * 100) / 100;//rounding the y value to 2 decimal value 
     vertex = "(" + x + "," + y + ")";//setting up the vertex 
     meshold1 = vertex;//setting vertex
     meshold2 = AOS; //setting aos 
     results();//calling mssage board 
+    numtroots();
 }
 //vertex and AOS flowchart END 
+
+//number of roots and type of roots flowchart START
+function numtroots(){//this function is made to get the number of roots and the type of roots 
+    hold3 = b * b;          //
+    hold4 = a * c;          //these 4 lines of code are used to find the discrimenent  
+    hold4 = hold4 * -4;     //     
+    temp3 = hold3 + hold4;  //
+    if(temp3 > 0){//seeing if discrimenent is more then 0 
+        num_of_roots = 2;
+        type_of_root = "Real Roots";
+    }else{
+        if(temp3 == 0){//seeing if discrimenent is equal too 0 
+            num_of_roots = 2;
+            type_of_root = "Equal Roots";
+        }else{
+            if(temp3 < 0){//seeing if discrimenent is less then 0 
+                num_of_roots = 2;
+                type_of_root = "Imaginary Roots";
+            }
+        }
+    }
+    meshold3 = num_of_roots;//setting the number of roots 
+    meshold4 = type_of_root;//setting the type of roots 
+    results();//calling mssage board 
+    roots();
+}
+//number of roots and type of roots flowchart END 
+
+//Solving roots START
+function roots(){//this function solves for the roots 
+    temp1 = hold3 + hold4;
+    var i = 0;
+    if(temp1 < 0){
+        temp1 = temp1 / -1;
+        i = "i";
+    }
+    temp2 = hold2;//setting temp2 to 2a
+    temp4 = Math.sqrt(temp1) / hold2;//this is calculating the top part of a quadratic equation (positive version)
+    temp4 = Math.round(temp4 * 1000000) / 1000000;//this line is rounding the radical number to 6 decimal places 
+    temp4 = temp4 + i;//if square rooted number was a negative the i will be added 
+    temp3 = hold1/hold2;//divind -b by 2a 
+    if(i == "i"){
+    root1 = "X = " + temp3 + " + " + temp4;//setting roots 
+    root2 = "X = " + temp3 + " - " + temp4;//setting roots
+    }else{
+        root1 = temp3 + temp4;//setting roots 
+        root2 = temp3 - temp4;//setting roots
+        root1 = "X = " + Math.round(root1 * 100) / 100;//rounding root1 to 2 places 
+        root2 = "X = " + Math.round(root2 * 100) / 100;//rounding root2 to places 
+    }
+    meshold5 = root1;// setting root 1 
+    meshold6 = root2;// setting roots 2 
+    results();//calling mssage board 
+}
+//Solving roots END

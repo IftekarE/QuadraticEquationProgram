@@ -77,12 +77,19 @@ function Acheck(inputtxt){
             }else{
                 if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
                     a = temp1;
+                    Bcheck(document.form2.text2);
                 }else{
                     if(temp1 % 2 == 1){//modding input by 2 to see if the input is a whole number
                         a = temp1;
+                        Bcheck(document.form2.text2);
                     }else{
-                        meshold0 = "The input can only be a whole number";
+                        if(temp1 % 2 == -1){
+                            a = temp1;
+                            Bcheck(document.form2.text2);
+                        }else{
+                        meshold0 = "The input A can only be a whole number";
                         notifications();//calling caller block 
+                        }
                     }
                 }
             }
@@ -107,12 +114,19 @@ function Bcheck(inputtxt){
             }else{
                 if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
                     b = temp1;
+                    Ccheck(document.form3.text3);
                 }else{
                     if(temp1 % 2 == 1){//modding input by 2 to see if the input is a whole number
                         b = temp1;
+                        Ccheck(document.form3.text3);
                     }else{
-                        meshold0 = "The input can only be a whole number";
+                        if(temp1 % 2 == -1){
+                            b = temp1;
+                            Ccheck(document.form3.text3);
+                        }else{
+                        meshold0 = "The input B can only be a whole number";
                         notifications();//calling caller block 
+                        }
                     }
                 }
             }
@@ -143,8 +157,13 @@ function Ccheck(inputtxt){
                         c = temp1;
                         veraos();
                     }else{
-                        meshold0 = "The input can only be a whole number";
+                        if(temp1 % 2 == -1){
+                            c = temp1;
+                            veraos();
+                        }else{
+                        meshold0 = "The input C can only be a whole number";
                         notifications();//calling caller block 
+                        }
                     }
                 }
             }
@@ -175,6 +194,7 @@ function veraos(){//this program is finding the vertex
     temp1 = x * x;//x is multiplying by x to represent x^2
     temp1 = a * temp1;//x * temp1 representing ax^2
     temp2 = b * x;//representing b*x
+    c =  c * 1;
     y = temp1 + temp2 + c;//this represents my formula y = ax^2 + bx + c
     y = Math.round(y * 100) / 100;//rounding the y value to 2 decimal value 
     vertex = "(" + x + "," + y + ")";//setting up the vertex 

@@ -1,6 +1,6 @@
 .BuildArea{
-    width: 1905px;
-    height: 920px;
+    width: 99%;
+    height: 98%;
     background-color: #5d8aa8;
     position: absolute;
     border-radius: 20px;
@@ -43,7 +43,7 @@
     background-color: #2b579a ;
     position: absolute;
     left: 25%;
-    top: 75%;
+    top: 80%;
     margin-left: -260px;
     margin-top: 50px;
     border-radius: 10px;

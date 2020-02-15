@@ -17,6 +17,8 @@ var root1 = 0;
 var root2 = 0;
 var x = 0;
 var y = 0;
+var c = 0;
+var ctx = 0;
 //Variables initlazing END 
 
 //Clearing variables START
@@ -40,6 +42,9 @@ function clear(){//this function is setting all variables to 0
     root2 = 0; 
     x = 0;
     y = 0;
+    
+    c = 0;
+    ctx = 0;
     
     meshold0 = 0;
     meshold1 = 0;
@@ -71,7 +76,7 @@ function Acheck(inputtxt){
         }else{
             var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
             if(inputtxt.value.match(letters)){
-                meshold0 = "The input can only be a negative or positive integer";
+                meshold0 = "The A input can only be a negative or positive integer";
                 alert("error");
                 notifications();
             }else{
@@ -87,7 +92,7 @@ function Acheck(inputtxt){
                             a = temp1;
                             Bcheck(document.form2.text2);
                         }else{
-                        meshold0 = "The input A can only be a whole number";
+                        meshold0 = "The A input can only be a whole number";
                         notifications();//calling caller block 
                         }
                     }
@@ -104,12 +109,12 @@ function Bcheck(inputtxt){
     }else{
         if(temp1 == 0){//checking if the B input is blank
             b = temp1;
-            meshold0 = ("b is " + b);
+            meshold0 = ("The B input is " + b);
             notifications();
         }else{
             var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
             if(inputtxt.value.match(letters)){
-                meshold0 = "The input can only be a negative or positive integer";
+                meshold0 = "The B input can only be a negative or positive integer";
                 notifications();
             }else{
                 if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
@@ -124,7 +129,7 @@ function Bcheck(inputtxt){
                             b = temp1;
                             Ccheck(document.form3.text3);
                         }else{
-                        meshold0 = "The input B can only be a whole number";
+                        meshold0 = "The B input can only be a whole number";
                         notifications();//calling caller block 
                         }
                     }
@@ -141,12 +146,12 @@ function Ccheck(inputtxt){
     }else{
         if(temp1 == 0){//checking if the C input is blank
             c = temp1;
-            meshold0 = "c is " + c;
+            meshold0 = "The C input is " + c;
             notifications();
         }else{
             var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
             if(inputtxt.value.match(letters)){
-                meshold0 = "The input can only be a negative or positive integer";
+                meshold0 = "The C input can only be a negative or positive integer";
                 notifications();
             }else{
                 if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
@@ -161,7 +166,7 @@ function Ccheck(inputtxt){
                             c = temp1;
                             veraos();
                         }else{
-                        meshold0 = "The input C can only be a whole number";
+                        meshold0 = "The C input can only be a whole number";
                         notifications();//calling caller block 
                         }
                     }
@@ -251,11 +256,23 @@ function roots(){//this function solves for the roots
     }else{
         root1 = temp3 + temp4;//setting roots 
         root2 = temp3 - temp4;//setting roots
-        root1 = "X = " + Math.round(root1 * 100) / 100;//rounding root1 to 2 places 
-        root2 = "X = " + Math.round(root2 * 100) / 100;//rounding root2 to places 
+        root1 = "X = " + Math.round(root1 * 1000) / 1000;//rounding root1 to 3 places 
+        root2 = "X = " + Math.round(root2 * 1000) / 1000;//rounding root2 to 3 places 
     }
     meshold5 = root1;// setting root 1 
     meshold6 = root2;// setting roots 2 
     results();//calling mssage board 
 }
 //Solving roots END
+
+//Graphing START
+    function graph(){//this function graphs the equation 
+        var c = document.getElementById("plane");//locating graph
+        var ctx = c.getContext("2d");//setting graph
+        ctx.moveTo(250,0);  // these 2 lines are for the y axis
+        ctx.lineTo(250,500);//
+        ctx.moveTo(0,250);  // these 2 lines are for the x axis
+        ctx.lineTo(500,250);//
+        ctx.stroke();//drawing the lines it self
+}
+//Graphing END

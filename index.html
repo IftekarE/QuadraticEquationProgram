@@ -38,7 +38,9 @@
                 </li>
             </ul>
         </div>
-        <div class="G"></div>
+        <div class="G">
+            <canvas id="plane" width="500" height="500"></canvas>
+        </div>
         <div class="O">
             <p>Output</p>
             <ul>
@@ -77,7 +79,7 @@
             <input 
             id="button" type="button" name="Enter" 
             value="Click to Solve Equation" 
-            onclick="clear(); Acheck(document.form1.text1);"
+            onclick="clear(); Acheck(document.form1.text1); graph();"
             />
         </div>
     </div>

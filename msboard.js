@@ -14,7 +14,15 @@ var idhold4 = 0;
 var idhold5 = 0;
 var idhold6 = 0;
 //
+
+//User message function START 
 function notifications(){
+    idhold0 = document.getElementById("can0");
+    idhold0.innerHTML = meshold0;
+}
+function notification0(){
+    idhold0 = 0;
+    meshold0 = "If you want to run program agin enter new values and click the button.";
     idhold0 = document.getElementById("can0");
     idhold0.innerHTML = meshold0;
 }
@@ -32,3 +40,22 @@ idhold4.innerHTML = meshold4;
 idhold5.innerHTML = meshold5;
 idhold6.innerHTML = meshold6;
 }
+//User message function END 
+
+//Message board reset START
+function reset(){
+    meshold1 = 0;
+    meshold2 = 0;
+    meshold3 = 0;
+    meshold4 = 0;
+    meshold5 = 0;
+    meshold6 = 0;
+    idhold1 = 0;
+    idhold2 = 0;
+    idhold3 = 0;
+    idhold4 = 0;
+    idhold5 = 0;
+    idhold6 = 0;
+    results();//calling caller block 
+}
+//Message board reset END 

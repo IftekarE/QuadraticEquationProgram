@@ -17,15 +17,19 @@
     border-radius: 20px;
 }
 .G{
-    width: 500px;
-    height: 500px;
+    width: 510px;
+    height: 510px;
     background-color: #ffffff;
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: -250px;
-    margin-left: -250px;
-    border-radius: 10px;
+    margin-top: -255px;
+    margin-left: -245px;
+    border-radius: 15px;
+}
+#plane{
+margin-top: 5px;
+margin-left: 5px;
 }
 .O{
     width: 250px;
@@ -35,7 +39,9 @@
     left: 75%;
     top: 50%;
     margin-top: -250px;
+    margin-left: 30px;
     border-radius: 20px;
+    
 }
 .B{
     width: 250px;

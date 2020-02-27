@@ -262,6 +262,7 @@ function roots(){//this function solves for the roots
     temp4 = Math.round(temp4 * 1000000) / 1000000;//this line is rounding the radical number to 6 decimal places 
     temp4 = temp4 + i;//if square rooted number was a negative the i will be added 
     temp3 = hold1/hold2;//divind -b by 2a 
+    temp3 = Math.round(temp3 * 1000000) / 1000000;//this line is rounding the radical number to 6 decimal places 
     if(i == "i"){
     root1 = "X = " + temp3 + " + " + temp4;//setting roots 
     root2 = "X = " + temp3 + " - " + temp4;//setting roots
@@ -281,10 +282,25 @@ function roots(){//this function solves for the roots
 function graph(){//this function graphs the equation 
         var c = document.getElementById("plane");//locating graph
         var ctx = c.getContext("2d");//setting graph
+        ctx.lineWidth = 1;
         ctx.moveTo(250,0);  // these 2 lines are for the y axis
         ctx.lineTo(250,500);//
         ctx.moveTo(0,250);  // these 2 lines are for the x axis
         ctx.lineTo(500,250);//
         ctx.stroke();//drawing the lines it self
+        var i = 0;
+        do{
+            ctx.moveTo(i,0);  // these 2 lines are for the y axis
+            ctx.lineTo(i,500);//
+            i = i + 25;
+            ctx.stroke();//drawing the lines it self
+        }while(i < 500 || i == 500);
+        var i = 0;
+        do{
+            ctx.moveTo(0,i);  // these 2 lines are for the y axis
+            ctx.lineTo(500,i);//
+            i = i + 25;
+            ctx.stroke();//drawing the lines it self
+        }while(i < 500 || i == 500);
 }
 //Graphing END

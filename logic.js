@@ -19,6 +19,7 @@ var x = 0;
 var y = 0;
 var c = 0;
 var ctx = 0;
+var scaled = 0;
 //Variables initlazing END 
 
 //Clearing variables START
@@ -58,6 +59,7 @@ function clear(){//this function is setting all variables to 0
     idhold4 = 0;
     idhold5 = 0;
     idhold6 = 0;
+    scaled = 0;
 }
 //Clearing variables END
 
@@ -280,27 +282,48 @@ function roots(){//this function solves for the roots
 
 //Graphing START
 function graph(){//this function graphs the equation 
-        var c = document.getElementById("plane");//locating graph
-        var ctx = c.getContext("2d");//setting graph
-        ctx.lineWidth = 1;
-        ctx.moveTo(250,0);  // these 2 lines are for the y axis
-        ctx.lineTo(250,500);//
-        ctx.moveTo(0,250);  // these 2 lines are for the x axis
-        ctx.lineTo(500,250);//
+    var c = document.getElementById("plane");//locating graph
+    var ctx = c.getContext("2d");//setting graph
+    ctx.lineWidth = 1;
+    ctx.moveTo(250,0);  // these 2 lines are for the y axis
+    ctx.lineTo(250,500);//
+    ctx.moveTo(0,250);  // these 2 lines are for the x axis
+    ctx.lineTo(500,250);//
+    ctx.stroke();//drawing the lines it self
+    var i = 0;
+    do{
+        ctx.moveTo(i,0);  // these 2 lines are for the y axis
+        ctx.lineTo(i,500);//
+        i = i + 25;
         ctx.stroke();//drawing the lines it self
-        var i = 0;
-        do{
-            ctx.moveTo(i,0);  // these 2 lines are for the y axis
-            ctx.lineTo(i,500);//
-            i = i + 25;
-            ctx.stroke();//drawing the lines it self
-        }while(i < 500 || i == 500);
-        var i = 0;
-        do{
-            ctx.moveTo(0,i);  // these 2 lines are for the y axis
-            ctx.lineTo(500,i);//
-            i = i + 25;
-            ctx.stroke();//drawing the lines it self
-        }while(i < 500 || i == 500);
+    }while(i < 500 || i == 500);
+    var i = 0;
+    console.log(x);
+    console.log(y);
+    do{
+        ctx.moveTo(0,i);  // these 2 lines are for the y axis
+        ctx.lineTo(500,i);//
+        i = i + 25;
+        ctx.stroke();//drawing the lines it self
+    }while(i < 500 || i == 500);
+        if(AOS > 100 && Y > 100){
+            x = AOS;
+            temp1 = x * 2.25;
+            temp1 = temp1 / 10;
+            temp2 = y * 2.25;
+            temp2 = temp2 / 10;
+            scaled = "yes";
+        }else{
+            x = AOS;
+            temp1 = x * 2.25;
+            temp2 = y * 2.25;
+            scaled = "no";
+        }
+    console.log(scaled);
+    LineGraph();
+    
+}
+
+function LineGraph(){
 }
 //Graphing END

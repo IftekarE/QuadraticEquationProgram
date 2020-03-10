@@ -20,6 +20,8 @@ var y = 0;
 var c = 0;
 var ctx = 0;
 var scaled = 0;
+var c = document.getElementById("plane");//locating graph
+var ctx = c.getContext("2d");//setting graph
 //Variables initlazing END 
 
 //Clearing variables START
@@ -306,7 +308,7 @@ function graph(){//this function graphs the equation
         i = i + 25;
         ctx.stroke();//drawing the lines it self
     }while(i < 500 || i == 500);
-        if(AOS > 100 && Y > 100){
+        if(AOS > 100 && y > 100 || AOS < -100 && y < -100 ){
             x = AOS;
             temp1 = x * 2.25;
             temp1 = temp1 / 10;
@@ -321,9 +323,41 @@ function graph(){//this function graphs the equation
         }
     console.log(scaled);
     LineGraph();
-    
 }
 
 function LineGraph(){
+    var c = document.getElementById("plane");//locating graph
+    var ctx = c.getContext("2d");//setting graph
+    var a = 0;
+    if(temp1 > 0 && temp2 > 0){
+        temp1 = temp1 + 250;
+        temp2 = 250 - temp2;
+    }else{
+        if(temp1 < 0 && temp2 < 0){
+            temp2 = temp2 + 250;
+            temp1 = 250 - temp1;
+        }else{
+            if(temp1 < 0 && temp2 > 0){
+                a = temp1 / -1;
+                temp1 = 250 - a;
+                temp2 = 250 - temp2;
+            }else{
+                if(temp2 < 0 && temp1 > 0){
+                    a = temp2 / -1;
+                    temp2 = temp2 + a;
+                    temp1 = 250 + temp1;
+                }
+            }
+        }
+    }
+    if(temp2 == 0 && temp1 == 0){
+        temp2 = 250;
+        temp1 = 250;
+    }
+    console.log(temp2);
+    console.log(temp1);
+    ctx.moveTo(temp1, temp2);
+    ctx.lineTo(100, 200);
+    ctx.stroke();
 }
 //Graphing END

@@ -21,7 +21,7 @@ var c = 0;
 var ctx = 0;
 var scaled = 0;
 var c = document.getElementById("plane");//locating graph
-var ctx = c.getContext("2d");//setting graph
+//var ctx = c.getContext("2d");//setting graph
 //Variables initlazing END 
 
 //Clearing variables START
@@ -112,35 +112,28 @@ function Bcheck(inputtxt){
         meshold0 = "The B input cannot be blank";
         notifications();//calling caller block 
         reset();//calling caller block 
-    }else{
-        if(temp1 == 0){//checking if the B input is blank
-            b = temp1;
-            meshold0 = ("The B input is " + b);
+    }else{ 
+        var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
+        if(inputtxt.value.match(letters)){
+            meshold0 = "The B input can only be a negative or positive integer";
             notifications();//calling caller block 
             reset();//calling caller block 
         }else{
-            var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
-            if(inputtxt.value.match(letters)){
-                meshold0 = "The B input can only be a negative or positive integer";
-                notifications();//calling caller block 
-                reset();//calling caller block 
+            if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
+                b = temp1;
+                Ccheck(document.form3.text3);//calling caller block 
             }else{
-                if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
+                if(temp1 % 2 == 1){//modding input by 2 to see if the input is a whole number
                     b = temp1;
                     Ccheck(document.form3.text3);//calling caller block 
                 }else{
-                    if(temp1 % 2 == 1){//modding input by 2 to see if the input is a whole number
+                    if(temp1 % 2 == -1){
                         b = temp1;
                         Ccheck(document.form3.text3);//calling caller block 
                     }else{
-                        if(temp1 % 2 == -1){
-                            b = temp1;
-                            Ccheck(document.form3.text3);//calling caller block 
-                        }else{
-                        meshold0 = "The B input can only be a whole number";
-                        notifications();//calling caller block 
-                        reset();//calling caller block 
-                        }
+                    meshold0 = "The B input can only be a whole number";
+                    notifications();//calling caller block 
+                    reset();//calling caller block 
                     }
                 }
             }
@@ -154,37 +147,30 @@ function Ccheck(inputtxt){
         notifications();//calling caller block 
         reset();//calling caller block 
     }else{
-        if(temp1 == 0){//checking if the C input is blank
-            c = temp1;
-            meshold0 = "The C input is " + c;
+        var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
+        if(inputtxt.value.match(letters)){
+            meshold0 = "The C input can only be a negative or positive integer";
             notifications();//calling caller block 
             reset();//calling caller block 
         }else{
-            var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
-            if(inputtxt.value.match(letters)){
-                meshold0 = "The C input can only be a negative or positive integer";
-                notifications();//calling caller block 
-                reset();//calling caller block 
+            if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
+                c = temp1;
+                veraos();//calling caller block 
+                notification0();//calling caller block 
             }else{
-                if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
+                if(temp1 % 2 == 1){//modding input by 2 to see if the input is a whole number
                     c = temp1;
                     veraos();//calling caller block 
                     notification0();//calling caller block 
                 }else{
-                    if(temp1 % 2 == 1){//modding input by 2 to see if the input is a whole number
+                    if(temp1 % 2 == -1){
                         c = temp1;
                         veraos();//calling caller block 
                         notification0();//calling caller block 
                     }else{
-                        if(temp1 % 2 == -1){
-                            c = temp1;
-                            veraos();//calling caller block 
-                            notification0();//calling caller block 
-                        }else{
-                        meshold0 = "The C input can only be a whole number";
-                        notifications();//calling caller block 
-                        reset();//calling caller block 
-                        }
+                    meshold0 = "The C input can only be a whole number";
+                    notifications();//calling caller block 
+                    reset();//calling caller block 
                     }
                 }
             }
@@ -228,10 +214,10 @@ function veraos(){//this program is finding the vertex
 
 //number of roots and type of roots flowchart START
 function numtroots(){//this function is made to get the number of roots and the type of roots 
-    hold3 = b * b;          //
-    hold4 = a * c;          //these 4 lines of code are used to find the discrimenent  
-    hold4 = hold4 * -4;     //     
-    temp3 = hold3 + hold4;  //
+    hold3 = b * b;         //
+    hold4 = a * c;         //these 4 lines of code are used to find the discrimenent  
+    hold4 = hold4 * -4;    //     
+    temp3 = hold3 + hold4; //
     if(temp3 > 0){//seeing if discrimenent is more then 0 
         num_of_roots = 2;
         type_of_root = "Real Roots";
@@ -263,10 +249,10 @@ function roots(){//this function solves for the roots
     }
     temp2 = hold2;//setting temp2 to 2a
     temp4 = Math.sqrt(temp1) / hold2;//this is calculating the top part of a quadratic equation (positive version)
-    temp4 = Math.round(temp4 * 1000000) / 1000000;//this line is rounding the radical number to 6 decimal places 
+    temp4 = Math.round(temp4 * 10000) / 10000;//this line is rounding the radical number to 6 decimal places 
     temp4 = temp4 + i;//if square rooted number was a negative the i will be added 
     temp3 = hold1/hold2;//divind -b by 2a 
-    temp3 = Math.round(temp3 * 1000000) / 1000000;//this line is rounding the radical number to 6 decimal places 
+    temp3 = Math.round(temp3 * 10000) / 10000;//this line is rounding the radical number to 6 decimal places 
     if(i == "i"){
     root1 = "X = " + temp3 + " + " + temp4;//setting roots 
     root2 = "X = " + temp3 + " - " + temp4;//setting roots
@@ -278,7 +264,9 @@ function roots(){//this function solves for the roots
     }
     meshold5 = root1;// setting root 1 
     meshold6 = root2;// setting roots 2 
+    setto();//calling caller block 
     results();//calling mssage board 
+    graph();//calling caller block
 }
 //Solving roots END
 
@@ -300,28 +288,32 @@ function graph(){//this function graphs the equation
         ctx.stroke();//drawing the lines it self
     }while(i < 500 || i == 500);
     var i = 0;
-    console.log(x);
-    console.log(y);
+    console.log("Actual X value: " + x);
+    console.log("Actual Y value: " + y);
     do{
         ctx.moveTo(0,i);  // these 2 lines are for the y axis
         ctx.lineTo(500,i);//
         i = i + 25;
         ctx.stroke();//drawing the lines it self
     }while(i < 500 || i == 500);
+
+        //
         if(AOS > 100 && y > 100 || AOS < -100 && y < -100 ){
             x = AOS;
-            temp1 = x * 2.25;
+            temp1 = x * 2.55;
             temp1 = temp1 / 10;
-            temp2 = y * 2.25;
+            temp2 = y * 2.5;
             temp2 = temp2 / 10;
-            scaled = "yes";
+            scaled = "Yes";
         }else{
             x = AOS;
-            temp1 = x * 2.25;
-            temp2 = y * 2.25;
-            scaled = "no";
+            temp1 = x * 2.5;
+            temp2 = y * 2.5;
+            scaled = "No";
         }
-    console.log(scaled);
+        //
+
+    console.log("Graph scaled: " + scaled);
     LineGraph();
 }
 
@@ -335,7 +327,7 @@ function LineGraph(){
     }else{
         if(temp1 < 0 && temp2 < 0){
             temp2 = temp2 + 250;
-            temp1 = 250 - temp1;
+            temp1 = 250 + temp1;
         }else{
             if(temp1 < 0 && temp2 > 0){
                 a = temp1 / -1;
@@ -344,7 +336,7 @@ function LineGraph(){
             }else{
                 if(temp2 < 0 && temp1 > 0){
                     a = temp2 / -1;
-                    temp2 = temp2 + a;
+                    temp2 = 250 + a;
                     temp1 = 250 + temp1;
                 }
             }
@@ -354,10 +346,9 @@ function LineGraph(){
         temp2 = 250;
         temp1 = 250;
     }
-    console.log(temp2);
-    console.log(temp1);
+    console.log("Graph X value: " + temp1);
+    console.log("Graph Y value: " + temp2);
     ctx.moveTo(temp1, temp2);
-    ctx.lineTo(100, 200);
     ctx.stroke();
 }
 //Graphing END

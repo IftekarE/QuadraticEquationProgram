@@ -350,5 +350,12 @@ function LineGraph(){
     console.log("Graph Y value: " + temp2);
     ctx.moveTo(temp1, temp2);
     ctx.stroke();
+    x = AOS;
+    if(x == 100){
+        
+    }else{
+        
+    }
+    
 }
 //Graphing END

@@ -22,7 +22,9 @@ function notifications(){
 }
 function notification0(){
     idhold0 = 0;
-    meshold0 = "If you want to run program agin enter new values and click the button.";
+    meshold0 = "If you want to run program agin enter new values and click the button." + 
+                " The graphs can support a minimum x value of -100 through 100 and the same for the y value;" + 
+                " The graph supports a maximum x vale of -1000 through 1000 and the same for y";
     idhold0 = document.getElementById("can0");
     idhold0.innerHTML = meshold0;
 }

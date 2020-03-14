@@ -288,8 +288,8 @@ function graph(){//this function graphs the equation
         ctx.stroke();//drawing the lines it self
     }while(i < 500 || i == 500);
     var i = 0;
-    console.log("Actual X value: " + x);
-    console.log("Actual Y value: " + y);
+    console.log("Actual X value: " + x);//displaying data in console 
+    console.log("Actual Y value: " + y);//displaying data in console 
     do{
         ctx.moveTo(0,i);  // these 2 lines are for the y axis
         ctx.lineTo(500,i);//
@@ -298,22 +298,22 @@ function graph(){//this function graphs the equation
     }while(i < 500 || i == 500);
 
         //
-        if(AOS > 100 && y > 100 || AOS < -100 && y < -100 ){
-            x = AOS;
-            temp1 = x * 2.55;
-            temp1 = temp1 / 10;
-            temp2 = y * 2.5;
-            temp2 = temp2 / 10;
-            scaled = "Yes";
+        if(AOS > 100 && y > 100 || AOS < -100 && y < -100 ){//checking for scale 
+            x = AOS;//setting AOS to x
+            temp1 = x * 2.55;//finding the point on graph 
+            temp1 = temp1 / 10;//scaling 
+            temp2 = y * 2.5;//dfinding the pointon graph 
+            temp2 = temp2 / 10;//scaliing 
+            scaled = "Yes";//scaling yes 
         }else{
             x = AOS;
             temp1 = x * 2.5;
             temp2 = y * 2.5;
-            scaled = "No";
+            scaled = "No";//scaling no 
         }
         //
 
-    console.log("Graph scaled: " + scaled);
+    console.log("Graph scaled: " + scaled);//displaying data in console 
     LineGraph();
 }
 
@@ -321,41 +321,143 @@ function LineGraph(){
     var c = document.getElementById("plane");//locating graph
     var ctx = c.getContext("2d");//setting graph
     var a = 0;
-    if(temp1 > 0 && temp2 > 0){
-        temp1 = temp1 + 250;
-        temp2 = 250 - temp2;
+    if(temp1 > 0 && temp2 > 0){//this is applying the rules of the JS canvas 
+        temp1 = temp1 + 250;   //the point is being positined in the first quadrant 
+        temp2 = 250 - temp2;   //the point is being positined in the first quadrant
     }else{
-        if(temp1 < 0 && temp2 < 0){
-            temp2 = temp2 + 250;
-            temp1 = 250 + temp1;
+        if(temp1 < 0 && temp2 < 0){//this is applying the rules of the JS canvas 
+            temp2 = temp2 + 250;   //the point if being positined in the 3rd quadrant
+            temp1 = 250 - temp1;   //the point if being positined in the 3rd quadrant
         }else{
-            if(temp1 < 0 && temp2 > 0){
-                a = temp1 / -1;
-                temp1 = 250 - a;
-                temp2 = 250 - temp2;
+            if(temp1 < 0 && temp2 > 0){//this is applying the rules of the JS canvas 
+                temp1 = temp1 / -1;    
+                temp1 = 250 - temp1;   //the point is being positioned in the 2nd quadrant 
+                temp2 = 250 - temp2;   //the point is being positioned in the 2nd quadrant 
             }else{
-                if(temp2 < 0 && temp1 > 0){
-                    a = temp2 / -1;
-                    temp2 = 250 + a;
-                    temp1 = 250 + temp1;
+                if(temp2 < 0 && temp1 > 0){//this is applying the rules of the JS canvas 
+                    temp2 = temp2 / -1;
+                    temp2 = 250 + temp2;   //the point is being positioned in the 4th quadrant 
+                    temp1 = 250 + temp1;   //the point is being positioned in the 4th quadrant 
                 }
             }
         }
     }
-    if(temp2 == 0 && temp1 == 0){
-        temp2 = 250;
-        temp1 = 250;
+    if(temp2 == 0 && temp1 == 0){// checking if vertex is 0,0
+        temp2 = 250;//setting vertext to looks like 0,0
+        temp1 = 250;//setting vertext to looks like 0,0
     }
-    console.log("Graph X value: " + temp1);
-    console.log("Graph Y value: " + temp2);
-    ctx.moveTo(temp1, temp2);
-    ctx.stroke();
-    x = AOS;
-    if(x == 100){
-        
-    }else{
-        
-    }
-    
+    console.log("Graph X value: " + temp1);//displaying data in console 
+    console.log("Graph Y value: " + temp2);//displaying data in console 
+    hold1 = temp1;
+    hold2 = temp2;
+    gghing();
 }
 //Graphing END
+
+function gghing(){
+    var c = document.getElementById("plane");//locating 
+    var ctx = c.getContext("2d");//setting graph
+    x = AOS;
+    var a = 0;
+    do{
+        x = x - 1;//increminting x by 1 
+        temp1 = x * x;      //
+        temp1 = a * temp1;  //these lines do ax^2
+        temp2 = b * x;//this line does bx
+        temp2 = temp1 + temp2 + c;//this line does the equation ax^2 + bx + c
+        temp1 = x;//setting x 
+        temp1 = temp1 * 2.5;//fitting the points to the graph
+        temp2 = temp2 * 2.5;//fitting the points to the graph
+        if(scaled == "No"){//fitting acording to scaled 
+            temp1 = temp1 / 10;//actually setting 
+            temp2 = temp2 / 10;//actually setting 
+        }
+        if(temp1 > 0 && temp2 > 0){//this is applying the rules of the JS canvas 
+            temp1 = temp1 + 250;   //the point is being positined in the first quadrant 
+            temp2 = 250 - temp2;   //the point is being positined in the first quadrant
+        }else{
+            if(temp1 < 0 && temp2 < 0){//this is applying the rules of the JS canvas 
+                temp2 = temp2 + 250;   //the point if being positined in the 3rd quadrant
+                temp1 = 250 - temp1;   //the point if being positined in the 3rd quadrant
+            }else{
+                if(temp1 < 0 && temp2 > 0){//this is applying the rules of the JS canvas 
+                    temp1 = temp1 / -1;    
+                    temp1 = 250 - temp1;   //the point is being positioned in the 2nd quadrant 
+                    temp2 = 250 - temp2;   //the point is being positioned in the 2nd quadrant 
+                }else{
+                    if(temp2 < 0 && temp1 > 0){//this is applying the rules of the JS canvas 
+                        temp2 = temp2 / -1;
+                        temp2 = 250 + temp2;   //the point is being positioned in the 4th quadrant 
+                        temp1 = 250 + temp1;   //the point is being positioned in the 4th quadrant 
+                    }
+                }
+            }
+        }
+
+        //ADD DRAWING HERE 
+        console.log("ERROR");
+        ctx.moveTo(hold1, hold2);
+        ctx.lineTo(temp1, temp2);
+    
+        hold1 = temp1;
+        hold2 = temp2;
+        //ADD DRAWING HERE 
+
+    }while(x > -100)//repeat until x is nolonger more then 100 
+
+    x = AOS;
+    var a = 0;
+    do{
+        x = x + 1;//increminting x by 1 
+        temp1 = x * x;      //
+        temp1 = a * temp1;  //these lines do ax^2
+        temp2 = b * x;//this line does bx
+        temp2 = temp1 + temp2 + c;//this line does the equation ax^2 + bx + c
+        temp1 = x;//setting x 
+        console.log("temp2 raw1: " + temp2);
+        temp1 = temp1 * 2.5;//fitting the points to the graph
+        temp2 = temp2 * 2.5;//fitting the points to the graph
+        console.log("temp2 raw2: " + temp2);
+        if(scaled == "Yes"){//fitting acording to scaled 
+            temp1 = temp1 / 10;//actually setting 
+            temp2 = temp2 / 10;//actually setting 
+        }
+        console.log("temp2 raw3: " + temp2);
+        if(temp1 > 0 && temp2 > 0){//this is applying the rules of the JS canvas 
+            temp1 = temp1 + 250;   //the point is being positined in the first quadrant 
+            temp2 = 250 - temp2;   //the point is being positined in the first quadrant
+            console.log("1");
+        }else{
+            if(temp1 < 0 && temp2 < 0){//this is applying the rules of the JS canvas 
+                temp2 = temp2 + 250;   //the point if being positined in the 3rd quadrant
+                temp1 = 250 - temp1;   //the point if being positined in the 3rd quadrant
+                console.log("2");
+            }else{
+                if(temp1 < 0 && temp2 > 0){//this is applying the rules of the JS canvas 
+                    a = temp1 / -1;    
+                    temp1 = 250 - a;   //the point is being positioned in the 2nd quadrant 
+                    temp2 = 250 - temp2;   //the point is being positioned in the 2nd quadrant 
+                    console.log("3");
+                }else{
+                    if(temp2 < 0 && temp1 > 0){//this is applying the rules of the JS canvas 
+                        a = temp2 / -1;
+                        temp2 = 250 + a;   //the point is being positioned in the 4th quadrant 
+                        temp1 = 250 + temp1;   //the point is being positioned in the 4th quadrant 
+                        console.log("4");
+                    }
+                }
+            }
+        }
+        console.log("temp2 raw4: " + temp2);
+        //ADD DRAWING HERE 
+        //console.log("This is the X value: " + temp1);
+        //console.log("This is the Y value: " + temp2);
+        console.log("ERROR");
+        ctx.moveTo(hold1, hold2);
+        ctx.lineTo(temp1, temp2);
+        hold1 = temp1;
+        hold2 = temp2;
+        //ADD DRAWING HERE 
+
+    }while(x < 100)//repeat until x is nolonger more then 100 
+}

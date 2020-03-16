@@ -16,15 +16,15 @@ function graph(){//this function sets up the graphs and vertex
         ctx.stroke();//drawing the lines it self
     }while(i < 500 || i == 500);
         //Add determining scaling code here START
-            x = AOS;
-            temp1 = x * 2.5;
-            temp2 = y * 2.5;
-            if(AOS > 100 && y > 100 || AOS < -100 && y < -100){
-                temp1 = temp1 / 10;
-                temp2 = temp2 / 10;
-                scaled = "yes";
+            x = AOS;//graph starting point 
+            temp1 = x * 2.5;//scaing according to the graph 
+            temp2 = y * 2.5;//scaling according to the graph 
+            if(AOS > 100 && y > 100 || AOS < -100 && y < -100){//deciding wether to scale 
+                temp1 = temp1 / 10;//scaling 
+                temp2 = temp2 / 10;//scaling 
+                scaled = "yes";//marking 
             }else{
-                scaled = "no";
+                scaled = "no";//marking 
             }
         //Add determining scaling code here END
             graphrules();
@@ -33,12 +33,11 @@ function graph(){//this function sets up the graphs and vertex
                 temp2 = 250;//setting vertext to looks like 0,0
                 temp1 = 250;//setting vertext to looks like 0,0
             }
-            console.log("Vertex: " + x + " , " + y);
-            ctx.moveTo(temp1,temp2);
-            verx = temp1;
-            very = temp2;
-            prex = verx;
-            prey = very; 
+            ctx.moveTo(temp1,temp2);//going to the vertex on the graph 
+            verx = temp1;//setting the vertex cordinates 
+            very = temp2;//setting the vertex cordinates 
+            prex = verx;//setting previous point 
+            prey = very;//setting previous point 
             graphequations();   
         //Finding the vertex in the graph END
 }
@@ -55,12 +54,13 @@ function graphequations(){//this fucntion is graphing the equation
             temp2 = temp1 + temp2 + c;// y = formula ax^2 + bx + c
             temp1 = x;//setting x starting point 
             temp1 = temp1 * 2.5;//finding point on the graph 
-            temp2 + temp2 * 2.5;//finding point on the graph 
+            temp2 = temp2 * 2.5;//finding point on the graph 
                 if(scaled == "yes"){//scaling if needed 
                     temp1 = temp1 / 10;//scaling 
                     temp2 = temp2 / 10;//scaling 
                 }
                 graphrules();//locating the point of the graph 500x500
+                    console.log(x + " : " + temp1 + " , " + temp2);
                     ctx.moveTo(prex,prey);  // these 2 lines are for the y axis
                     ctx.lineTo(temp1,temp2);//
                     ctx.stroke();//drawing the lines it self
@@ -79,12 +79,13 @@ function graphequations(){//this fucntion is graphing the equation
             temp2 = temp1 + temp2 + c;// y = formula ax^2 + bx + c
             temp1 = x;//setting x starting point 
             temp1 = temp1 * 2.5;//finding the point on the graph 
-            temp2 + temp2 * 2.5;//finding the point on the graph 
+            temp2 = temp2 * 2.5;//finding the point on the graph 
                 if(scaled == "yes"){//scaling if needed 
                     temp1 = temp1 / 10;//scaling 
                     temp2 = temp2 / 10;//scaling 
                 }
                 graphrules();//locating the point of the graph 500x500
+                    console.log(x + " : " + temp1 + " , " + temp2);
                     ctx.moveTo(prex,prey);  // these 2 lines are for the y axis
                     ctx.lineTo(temp1,temp2);//
                     ctx.stroke();//drawing the lines it self
@@ -94,14 +95,33 @@ function graphequations(){//this fucntion is graphing the equation
     //graphing the equation END
 }
 function graphrules(){
-    //add vertex finding code here START
-        if(temp1 > 0 && temp2 > 0){//if the point is on the 1sr quadrant 
+    //add point finding code here START
+    var i = 0;
+    if(x == 0){//special conditions chekcing 
+        temp1 = 250;//if x is 0 
+        temp2 = 250 - temp2;//if y is 0
+        i = 1;//by doing this the process is being bipassed 
+    }
+    if(temp2 == 0){//special condition checking 
+        temp1 = 250 + temp1;//if y is 0 
+        temp2 = 250;//if y is 0
+        i = 1;//bypassing the system
+    }
+    if(i == 0){//deciding to bypass the process 
+        if(temp1 > 0 && temp2 > 0){//if the point is on the 1st quadrant 
             temp1 = temp1 + 250;
             temp2 = 250 - temp2;
         }else{
             if(temp1 < 0 && temp2 < 0){//if the point is on the 3rd quadrant 
-                temp1 = 250 - temp1;
-                temp2 = temp2 + 250;
+                if(a < 0){//different conditions apply for a downward graph 
+                    temp1 = temp1 + 250;//quad 1 code
+                    temp2 = 250 - temp2;//quad 1 code 
+                }
+                if(a > 0){//if the graph is upwards 
+                    temp1 = 250 + temp1;//code for 3rd quad 
+                    temp2 = temp2 / -1;
+                    temp2 = temp2 + 250;//code for 3rd quad 
+                }
             }else{
                 if(temp1 < 0 && temp2 > 0){//if the point is on the 2nd quadrant 
                     temp1 = temp1 / -1;
@@ -112,9 +132,10 @@ function graphrules(){
                         temp1 = 250 + temp1;
                         temp2 = temp2 / -1;
                         temp2 = 250 + temp2;
+                        }
                     }
                 }
             }
         }
-    //add vertex finding code here END
-}
+    //add point finding code here END
+}    

@@ -20,6 +20,10 @@ var y = 0;
 var c = 0;
 var ctx = 0;
 var scaled = 0;
+var prex = 0;
+var prey = 0;
+var verx = 0;
+var very = 0;
 //Variables initlazing END 
 
 //Clearing variables START
@@ -60,6 +64,10 @@ function clear(){//this function is setting all variables to 0
     idhold5 = 0;
     idhold6 = 0;
     scaled = 0;
+    prex = 0;
+    prey = 0;
+    verx = 0;
+    very = 0;
 }
 //Clearing variables END
 

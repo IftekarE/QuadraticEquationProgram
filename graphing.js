@@ -1,7 +1,9 @@
 function graph(){//this function sets up the graphs and vertex
     var h = document.getElementById("plane");//locating graph
     var ctx = h.getContext("2d");//setting graph
+    ctx.clearRect(0, 0, plane.width, plane.height);
     var i = 0;
+    ctx.strokeStyle = '#000000';
     do{
         ctx.moveTo(i,0);  // these 2 lines are for the y axis
         ctx.lineTo(i,500);//
@@ -43,7 +45,7 @@ function scalingandlabeling(){
         x = AOS;//graph starting point 
         temp1 = x * 2.5;//scaing according to the graph 
         temp2 = y * 2.5;//scaling according to the graph 
-        if(AOS > 100 && y > 100 || AOS < -100 && y < -100){//deciding wether to scale 
+        if(AOS > 100 || y > 100 || AOS < -100 || y < -100){//deciding wether to scale 
             temp1 = temp1 / 10;//scaling 
             temp2 = temp2 / 10;//scaling 
             scaled = "yes";//marking 
@@ -53,23 +55,34 @@ function scalingandlabeling(){
             scaled = "no";//marking
         }
     //Add determining scaling code here END
-        zz = lomax / -1;
+        zz = lomax / -1;//this is to make sure the graph starts for the min point 
+        aa = zz;//this is later used for asthetic purposese
     do{
             if(zz > 0){//displaying unit value 
-                if(zz == lomax){
-                    ctx.strokeText(zz, i - 18, 247);//this is whats displaying them
-                }else{
-                    ctx.strokeText(zz, i -13, 247);//this is whats displaying them 
+                if(zz !== lomax ){if(zz !== aa ){//this is chekcing if the graphs at its first or last point 
+                    if(zz == lomax){
+                        ctx.strokeText(zz, i - 18, 247);//this is whats displaying them
+                    }else{
+                        if(scaled == "yes"){
+                            ctx.strokeText(zz, i - 18, 247);//this is whats displaying them 
+                        }else{
+                            ctx.strokeText(zz, i -13, 247);//this is whats displaying them 
+                        }
+                    }
                 }
-            }else{
-                if(zz == 0){
-                    ctx.strokeText(zz, i - 7, 259);//this is whats displaying them
-                }else{
-                    ctx.strokeText(zz, i + 2, 247);//this is whats displaying them
-                    }    
+            }
+        }else{
+            if(zz !== lomax ){if(zz !== aa ){//this is chekcing if the graphs at its first or last point
+                    if(zz == 0){
+                        ctx.strokeText(zz, i - 7, 259);//this is whats displaying them
+                    }else{
+                        ctx.strokeText(zz, i + 2, 247);//this is whats displaying them
+                        }    
+                    }
                 }
+            }
             zz = zz + goup;//incrementing zz for the next graph value 
-            i = i + 25;
+            i = i + 25;//moving to the next line 
         ctx.stroke();//drawing the lines it self
     }while(i < 500 || i == 500);
         var i = 0;
@@ -102,8 +115,10 @@ function graphequations(){//this fucntion is graphing the equation
                 }
                 graphrules();//locating the point of the graph 500x500
                                 // console.log(x + " : " + temp1 + " , " + temp2);  //this line of code was used for debugging the ggraph"really helpfull"
+                    ctx.beginPath();
                     ctx.moveTo(prex,prey);  // these 2 lines are for the y axis
                     ctx.lineTo(temp1,temp2);//
+                    ctx.strokeStyle = '#ff0000';
                     ctx.stroke();//drawing the lines it self
                 prex = temp1;//set up for next point 
                 prey = temp2;//set up for next point 
@@ -127,8 +142,10 @@ function graphequations(){//this fucntion is graphing the equation
                 }
                 graphrules();//locating the point of the graph 500x500
                                 // console.log(x + " : " + temp1 + " , " + temp2);  //this line of code was used for debugging the ggraph"really helpfull"
+                    ctx.beginPath();
                     ctx.moveTo(prex,prey);  // these 2 lines are for the y axis
                     ctx.lineTo(temp1,temp2);//
+                    ctx.strokeStyle = '#ff0000';
                     ctx.stroke();//drawing the lines it self
                 prex = temp1;//set up for the next point 
                 prey = temp2;//set up for the next point 

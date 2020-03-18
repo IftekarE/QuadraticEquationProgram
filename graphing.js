@@ -16,16 +16,7 @@ function graph(){//this function sets up the graphs and vertex
         ctx.stroke();//drawing the lines it self
     }while(i < 500 || i == 500);
         //Add determining scaling code here START
-            x = AOS;//graph starting point 
-            temp1 = x * 2.5;//scaing according to the graph 
-            temp2 = y * 2.5;//scaling according to the graph 
-            if(AOS > 100 && y > 100 || AOS < -100 && y < -100){//deciding wether to scale 
-                temp1 = temp1 / 10;//scaling 
-                temp2 = temp2 / 10;//scaling 
-                scaled = "yes";//marking 
-            }else{
-                scaled = "no";//marking 
-            }
+            scalingandlabeling();
         //Add determining scaling code here END
             graphrules();
         //Finding the vertex in the graph SATRT
@@ -40,6 +31,56 @@ function graph(){//this function sets up the graphs and vertex
             prey = very;//setting previous point 
             graphequations();   
         //Finding the vertex in the graph END
+}
+function scalingandlabeling(){
+    var h = document.getElementById("plane");//locating graph
+    var ctx = h.getContext("2d");//setting graph
+    ctx.font = "10px Arial";
+    var i = 0;
+    var lomax = 100;
+    var goup = 10;
+    //Add determining scaling code here START
+        x = AOS;//graph starting point 
+        temp1 = x * 2.5;//scaing according to the graph 
+        temp2 = y * 2.5;//scaling according to the graph 
+        if(AOS > 100 && y > 100 || AOS < -100 && y < -100){//deciding wether to scale 
+            temp1 = temp1 / 10;//scaling 
+            temp2 = temp2 / 10;//scaling 
+            scaled = "yes";//marking 
+            lomax = 1000;
+            goup = 100;
+        }else{
+            scaled = "no";//marking
+        }
+    //Add determining scaling code here END
+        zz = lomax / -1;
+    do{
+            if(zz > 0){//displaying unit value 
+                if(zz == lomax){
+                    ctx.strokeText(zz, i - 18, 247);//this is whats displaying them
+                }else{
+                    ctx.strokeText(zz, i -13, 247);//this is whats displaying them 
+                }
+            }else{
+                if(zz == 0){
+                    ctx.strokeText(zz, i - 7, 259);//this is whats displaying them
+                }else{
+                    ctx.strokeText(zz, i + 2, 247);//this is whats displaying them
+                    }    
+                }
+            zz = zz + goup;//incrementing zz for the next graph value 
+            i = i + 25;
+        ctx.stroke();//drawing the lines it self
+    }while(i < 500 || i == 500);
+        var i = 0;
+    do{
+            if(zz !== 0){//this is whats displaying them 
+            ctx.strokeText(zz, 254, i - 27);//this is whats displaying them
+            }
+            zz = zz - goup;//incrementing zz for the next graph value
+            i = i + 25;
+            ctx.stroke();//drawing the lines it self
+    }while(i < 500 || i == 500);
 }
 function graphequations(){//this fucntion is graphing the equation
     var h = document.getElementById("plane");//locating graph
@@ -60,7 +101,7 @@ function graphequations(){//this fucntion is graphing the equation
                     temp2 = temp2 / 10;//scaling 
                 }
                 graphrules();//locating the point of the graph 500x500
-                    console.log(x + " : " + temp1 + " , " + temp2);
+                                // console.log(x + " : " + temp1 + " , " + temp2);  //this line of code was used for debugging the ggraph"really helpfull"
                     ctx.moveTo(prex,prey);  // these 2 lines are for the y axis
                     ctx.lineTo(temp1,temp2);//
                     ctx.stroke();//drawing the lines it self
@@ -85,7 +126,7 @@ function graphequations(){//this fucntion is graphing the equation
                     temp2 = temp2 / 10;//scaling 
                 }
                 graphrules();//locating the point of the graph 500x500
-                    console.log(x + " : " + temp1 + " , " + temp2);
+                                // console.log(x + " : " + temp1 + " , " + temp2);  //this line of code was used for debugging the ggraph"really helpfull"
                     ctx.moveTo(prex,prey);  // these 2 lines are for the y axis
                     ctx.lineTo(temp1,temp2);//
                     ctx.stroke();//drawing the lines it self

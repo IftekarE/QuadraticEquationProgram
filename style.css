@@ -1,11 +1,11 @@
-.BuildArea{
+.BuildArea{/*this is the div for the build area*/
     width: 99%;
     height: 98%;
     background-color: #5d8aa8;
     position: absolute;
     border-radius: 20px;
 }
-.I{
+.I{/*this is the div for inputs*/
     width: 250px;
     height: 500px;
     background-color: #d8d8d8;
@@ -16,22 +16,58 @@
     margin-left: -260px;
     border-radius: 20px;
 }
-.G{
+.G{/*this is the div for graphing*/
     width: 510px;
-    height: 510px;
+    height: 710px;
     background-color: #ffffff;
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: -255px;
+    margin-top: -355px;
     margin-left: -245px;
     border-radius: 15px;
 }
-#plane{
-margin-top: 5px;
-margin-left: 5px;
+#plane{/*this is tag for the canvas*/
+    margin-top: 5px;
+    margin-left: 5px;
 }
-.O{
+.T{/*this is the div for the textarea*/
+    width: 510px;
+    height: 200px;
+}
+.PT{/*this is the textarea for positve*/
+    width: 250px;
+    height: 190px;
+}
+.NT{/*this is the text area for the negative*/
+    width: 250px;
+    height: 190px;
+    margin-top: -190px;
+    margin-left: 255px;
+}
+.PP, .PN{/*these are the paragraph tag for the text area*/
+    width: 200px;
+    height: 20px;
+    margin: 0px;
+    padding-left: 5px;
+    font-size: 15px;
+    font-family:sans-serif;
+    text-align: justify;
+
+}
+#pointspos,#pointsneg{/*these are the text area */
+    width: 240px;
+    height: 168px;
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 15px;
+    margin-top: 2px;
+    resize: none;
+}
+#pointspos:focus, #pointsneg:focus{/*this gets rid of button borders*/
+    outline:0;  
+}
+.O{/*this is the output div*/
     width: 250px;
     height: 500px;
     background-color: #d8d8d8;
@@ -43,7 +79,7 @@ margin-left: 5px;
     border-radius: 20px;
     
 }
-.B{
+.B{/*this is the button div*/
     width: 250px;
     height: 50px;
     background-color: #2b579a ;
@@ -54,7 +90,7 @@ margin-left: 5px;
     margin-top: 50px;
     border-radius: 10px;
 }
-#button{
+#button{/*this is the button*/
     width: 250px;
     height: 50px;
     background-color: #2b579a ;
@@ -73,14 +109,14 @@ margin-left: 5px;
 #button:active{/*this is waht temporarly changes button colors when clicked on*/
     color: #ff6a6a;     
 }
-p{
+p{/*these are all the paragraph tags*/
     font-size: 20px;
     margin-left: 100px;
 }
-ul{
+ul{/*this is the list tag*/
     list-style: none;
     padding-left: 20px;
 }
-#nameuser{
+#nameuser{/*this is the input tag*/
     border-radius: 5px;
 }

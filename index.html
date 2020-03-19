@@ -8,25 +8,25 @@
 </head>
 <body>
     <div class="BuildArea">
-        <div class="I">
+        <div class="I"><!--input div-->
             <p>Input</p>
             <ul>
                 <li>
-                    A:
+                    A:<!--input a-->
                     <form name="form1" action="#"><!--this creates an input box-->
                         <input type='text' name='text1' id= "nameuser"/><!--this assigns the input a type and name-->
                     </form>
                 </li>
             </br>
                 <li>
-                    B:
+                    B:<!--input b-->
                     <form name="form2" action="#"><!--this creates an input box-->
                         <input type='text' name='text2' id= "nameuser"/><!--this assigns the input a type and name-->
                     </form>
                 </li>
             </br>
                 <li>
-                    C:
+                    C:<!--input c-->
                     <form name="form3" action="#"><!--this creates an input box-->
                         <input type='text' name='text3' id= "nameuser"/><!--this assigns the input a type and name-->
                     </form>
@@ -35,53 +35,63 @@
                 <li>
                     Website messages:
             </br>
-                    <span id = "can0"></span>
+                    <span id = "can0"wrap=""></span><!--user message container-->
                 </li>
             </ul>
         </div>
-        <div class="G">
-            <canvas id="plane" width="500" height="500"></canvas>
+        <div class="G"><!--graphing related div-->
+            <canvas id="plane" width="500" height="500"></canvas><!--the canvas in which the graph is drawn-->
+                    <div class="T"><!--this div contains the text areas where cordinates are shown-->
+                        <div class="PT"><!--contains the text area for the postive x-->
+                            <p class="PP">Positive X Points:</p>
+                            <textarea id="pointspos" wrap="" disabled></textarea>
+                        </div>
+                        <div class="NT"><!--contains the textarea for the negative x-->
+                            <p class="PN">Negative X Points:</p>
+                            <textarea id="pointsneg" wrap="" disabled></textarea>
+                        </div>
+                    </div>
         </div>
-        <div class="O">
+        <div class="O"><!--output div-->
             <p>Output</p>
             <ul>
                 <li>
                     Vertex:
-                    <span id ="can1"></span>
+                    <span id ="can1"wrap=""></span><!--displayes vertex-->
                 </li>
             </br>
                 <li>
                     Axis of Symmetry:
-                    <span id ="can2"></span>
+                    <span id ="can2"wrap=""></span><!--displays AOS-->
                 </li>
             </br>
                 <li>
                     Number of Roots:
-                    <span id ="can3"></span>
+                    <span id ="can3"wrap=""></span><!--displays number of roots-->
                 </li>
             </br>
                 <li>
                     Type of Roots:
-                    <span id ="can4"></span>
+                    <span id ="can4"wrap=""></span><!--displays type of roots -->
                 </li>
             </br>
                 <li>
                     Root 1:
-                    <span id ="can5"></span>
+                    <span id ="can5"wrap=""></span><!--displayes roots 1-->
                 </li>
             </br>
                 <li>
                     Root 2:
-                    <span id ="can6"></span>
+                    <span id ="can6"wrap=""></span><!--displays root 2-->
                 </li>
             </ul>
         </div>
-        <div class="B">
+        <div class="B"><!--button div-->
             <input 
             id="button" type="button" name="Enter" 
             value="Click to Solve Equation" 
             onclick="clear(); Acheck(document.form1.text1);"
-            />
+            /><!--sending and calling functions-->
         </div>
     </div>
 </body>

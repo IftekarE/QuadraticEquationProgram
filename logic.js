@@ -1,29 +1,29 @@
 //Variables initlazing START
-var hold1 = 0;
-var hold2 = 0;
-var hold3 = 0;
-var hold4 = 0;
-var temp1 = 0;
-var temp2 = 0;
-var temp3 = 0;
-var a = 0;
-var b = 0;
-var c = 0;
-var vertex = 0;
-var AOS = 0;
-var num_of_roots = 0;
-var type_of_root = 0;
-var root1 = 0;
-var root2 = 0;
-var x = 0;
-var y = 0;
-var c = 0;
-var ctx = 0;
-var scaled = 0;
-var prex = 0;
-var prey = 0;
-var verx = 0;
-var very = 0;
+var hold1 = 0;//these are vars which contents are used more then once 
+var hold2 = 0;//these are vars which contents are used more then once 
+var hold3 = 0;//these are vars which contents are used more then once 
+var hold4 = 0;//these are vars which contents are used more then once 
+var temp1 = 0;//these are vars which contents are regularly changed 
+var temp2 = 0;//these are vars which contents are regularly changed 
+var temp3 = 0;//these are vars which contents are regularly changed 
+var a = 0;//these are vars which contents are the inputs 
+var b = 0;//these are vars which contents are the inputs 
+var c = 0;//these are vars which contents are the inputs 
+var vertex = 0;//these are vars which contents hold the vertex
+var AOS = 0;//these are vars which contents hold the AOS
+var num_of_roots = 0;//these are vars which contents hold the numbeer of roots 
+var type_of_root = 0;//these are vars which contents hold the type of roots 
+var root1 = 0;//these are vars which contents hold the root 1
+var root2 = 0;//these are vars which contents hold the root 2 
+var x = 0;//these are vars which contents represent the x cordinate 
+var y = 0;//these are vars which contents represent the x cordinate 
+var scaled = 0;//these are vars which contents contain info on wether or not the graph is scaled 
+var prex = 0;//these are vars which contents hold the previous x cordinate 
+var prey = 0;//these are vars which contents hold the previous y cordinate 
+var verx = 0;//these are vars which contents hold the vertex x cordinate 
+var very = 0;//these are vars which contents hold the vertex y cordinate 
+var ppoints = [];//these are the arrays that hold all positive x points along with y 
+var npoints = [];//these are the arrays that hold all negative x points along with y 
 //Variables initlazing END 
 
 //Clearing variables START
@@ -68,6 +68,8 @@ function clear(){//this function is setting all variables to 0
     prey = 0;
     verx = 0;
     very = 0;
+    ppoints = [];
+    npoints = [];
 }
 //Clearing variables END
 

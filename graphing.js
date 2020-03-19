@@ -45,7 +45,7 @@ function scalingandlabeling(){
         x = AOS;//graph starting point 
         temp1 = x * 2.5;//scaing according to the graph 
         temp2 = y * 2.5;//scaling according to the graph 
-        if(AOS > 100 || y > 100 || AOS < -100 || y < -100){//deciding wether to scale 
+        if(AOS >80 || y > 80 || AOS < -80 || y < -80){//deciding wether to scale 
             temp1 = temp1 / 10;//scaling 
             temp2 = temp2 / 10;//scaling 
             scaled = "yes";//marking 
@@ -107,6 +107,9 @@ function graphequations(){//this fucntion is graphing the equation
             temp2 = b * x;//bx
             temp2 = temp1 + temp2 + c;// y = formula ax^2 + bx + c
             temp1 = x;//setting x starting point 
+                ppoints.push("X " + x + ": " + "(" + temp1 + " , " + temp2 + ")");//this is pushing the cordinates of the specific x point
+                textarea = document.getElementById("pointspos");//linking the html file to the js file 
+                textarea.value = ppoints.join("\n");//displaying the outputs 
             temp1 = temp1 * 2.5;//finding point on the graph 
             temp2 = temp2 * 2.5;//finding point on the graph 
                 if(scaled == "yes"){//scaling if needed 
@@ -122,7 +125,7 @@ function graphequations(){//this fucntion is graphing the equation
                     ctx.stroke();//drawing the lines it self
                 prex = temp1;//set up for next point 
                 prey = temp2;//set up for next point 
-        }while(x < 100)//loop conditon 
+        }while(x < 200)//loop conditon 
 
         prex = verx;//going back to the vertex
         prey = very;//going back to the vertex 
@@ -134,6 +137,9 @@ function graphequations(){//this fucntion is graphing the equation
             temp2 = b * x;//bx
             temp2 = temp1 + temp2 + c;// y = formula ax^2 + bx + c
             temp1 = x;//setting x starting point 
+                npoints.push("X " + x + ": " + "(" + temp1 + " , " + temp2 + ")");//this is pushing the cordinates of the specific x point
+                textarea = document.getElementById("pointsneg");//linking the html file to the js file 
+                textarea.value = npoints.join("\n");//displaying the outputs 
             temp1 = temp1 * 2.5;//finding the point on the graph 
             temp2 = temp2 * 2.5;//finding the point on the graph 
                 if(scaled == "yes"){//scaling if needed 
@@ -149,7 +155,7 @@ function graphequations(){//this fucntion is graphing the equation
                     ctx.stroke();//drawing the lines it self
                 prex = temp1;//set up for the next point 
                 prey = temp2;//set up for the next point 
-        }while(x > -100)//loop condition 
+        }while(x > -200)//loop condition 
     //graphing the equation END
 }
 function graphrules(){

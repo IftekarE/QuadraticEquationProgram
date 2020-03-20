@@ -69,12 +69,15 @@ function clear(){//this function is setting all variables to 0
     verx = 0;
     very = 0;
     ppoints = [];
-    npoints = [];
+    npoints = []; 
+    document.getElementById("pointspos").value = "";
+    document.getElementById("pointsneg").value = ""; 
 }
 //Clearing variables END
 
 //Checking for input START
 function Acheck(inputtxt){
+    clear();//calling clear all block
     temp1 = inputtxt.value;
     if(inputtxt.value.length == 0){//checking if the input is blank  
         meshold0 = "The A input cannot be blank";

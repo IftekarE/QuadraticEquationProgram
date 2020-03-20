@@ -167,9 +167,18 @@ function graphrules(){
         i = 1;//by doing this the process is being bipassed 
     }
     if(temp2 == 0){//special condition checking 
-        temp1 = 250 + temp1;//if y is 0 
-        temp2 = 250;//if y is 0
-        i = 1;//bypassing the system
+        if(x == 0){
+            temp1 = 250;//setting temp1 to 250 beccause x is 0
+            temp2 = c * 2.5;//setting temp2 to c times 2.5 because x is 0
+            if(scaled == "yes"){//looking to see if its scaled
+                temp2 = temp2 / 10;//scaling
+            }
+            temp2 = 250 - temp2;//if y is 0
+        }else{
+            temp1 = 250 + temp1;//if y is 0 
+            temp2 = 250;//if y is 0
+            i = 1;//bypassing the system
+        }
     }
     if(i == 0){//deciding to bypass the process 
         if(temp1 > 0 && temp2 > 0){//if the point is on the 1st quadrant 

@@ -72,6 +72,8 @@ function clear(){//this function is setting all variables to 0
     npoints = []; 
     document.getElementById("pointspos").value = "";
     document.getElementById("pointsneg").value = ""; 
+    graph();
+    x = 0;
 }
 //Clearing variables END
 
@@ -81,18 +83,21 @@ function Acheck(inputtxt){
     temp1 = inputtxt.value;
     if(inputtxt.value.length == 0){//checking if the input is blank  
         meshold0 = "The A input cannot be blank";
-        notifications();//calling caller block 
+        notifications();//calling caller block   
+        clear();//calling clear all block 
         reset();//calling caller block 
     }else{
         if(temp1 == 0){//checking if the A input is blank
             meshold0 = "The A input cannot be 0";
-            notifications();//calling caller block 
+            notifications();//calling caller block   
+            clear();//calling clear all block 
             reset();//calling caller block 
         }else{
             var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
             if(inputtxt.value.match(letters)){
                 meshold0 = "The A input can only be a negative or positive integer";
-                notifications();//calling caller block 
+                notifications();//calling caller block   
+                clear();//calling clear all block 
                 reset();//calling caller block 
             }else{
                 if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
@@ -108,7 +113,8 @@ function Acheck(inputtxt){
                             Bcheck(document.form2.text2);//calling caller block 
                         }else{
                         meshold0 = "The A input can only be a whole number";
-                        notifications();//calling caller block 
+                        notifications();//calling caller block   
+                        clear();//calling clear all block 
                         reset();//calling caller block 
                         }
                     }
@@ -121,13 +127,15 @@ function Bcheck(inputtxt){
     temp1 = inputtxt.value;
     if(inputtxt.value.length == 0){//checking if the input is blank  
         meshold0 = "The B input cannot be blank";
-        notifications();//calling caller block 
+        notifications();//calling caller block   
+        clear();//calling clear all block 
         reset();//calling caller block 
     }else{ 
         var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
         if(inputtxt.value.match(letters)){
             meshold0 = "The B input can only be a negative or positive integer";
-            notifications();//calling caller block 
+            notifications();//calling caller block   
+            clear();//calling clear all block 
             reset();//calling caller block 
         }else{
             if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
@@ -143,7 +151,8 @@ function Bcheck(inputtxt){
                         Ccheck(document.form3.text3);//calling caller block 
                     }else{
                     meshold0 = "The B input can only be a whole number";
-                    notifications();//calling caller block 
+                    notifications();//calling caller block   
+                    clear();//calling clear all block 
                     reset();//calling caller block 
                     }
                 }
@@ -155,13 +164,15 @@ function Ccheck(inputtxt){
     temp1 = inputtxt.value;
     if(inputtxt.value.length == 0){//checking if the input is blank  
         meshold0 = "The C input cannot be blank";
-        notifications();//calling caller block 
+        notifications();//calling caller block   
+        clear();//calling clear all block 
         reset();//calling caller block 
     }else{
         var letters = /^[A-Za-z]+$/;//chicking to see if the input is a letter 
         if(inputtxt.value.match(letters)){
             meshold0 = "The C input can only be a negative or positive integer";
-            notifications();//calling caller block 
+            notifications();//calling caller block   
+            clear();//calling clear all block 
             reset();//calling caller block 
         }else{
             if(temp1 % 2 == 0){//modding input by 2 to see if the input is a whole number
@@ -180,7 +191,8 @@ function Ccheck(inputtxt){
                         notification0();//calling caller block 
                     }else{
                     meshold0 = "The C input can only be a whole number";
-                    notifications();//calling caller block 
+                    notifications();//calling caller block   
+                    clear();//calling clear all block 
                     reset();//calling caller block 
                     }
                 }

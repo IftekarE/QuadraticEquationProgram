@@ -2,37 +2,39 @@ function graph(){//this function sets up the graphs and vertex
     var h = document.getElementById("plane");//locating graph
     var ctx = h.getContext("2d");//setting graph
     ctx.clearRect(0, 0, plane.width, plane.height);
-    var i = 0;
-    ctx.strokeStyle = '#000000';
-    do{
-        ctx.moveTo(i,0);  // these 2 lines are for the y axis
-        ctx.lineTo(i,500);//
-        i = i + 25;
-        ctx.stroke();//drawing the lines it self
-    }while(i < 500 || i == 500);
-    var i = 0;
-    do{
-        ctx.moveTo(0,i);  // these 2 lines are for the y axis
-        ctx.lineTo(500,i);//
-        i = i + 25;
-        ctx.stroke();//drawing the lines it self
-    }while(i < 500 || i == 500);
-        //Add determining scaling code here START
-            scalingandlabeling();
-        //Add determining scaling code here END
-            graphrules();
-        //Finding the vertex in the graph SATRT
-            if(temp2 == 0 && temp1 == 0){// checking if vertex is 0,0
-                temp2 = 250;//setting vertext to looks like 0,0
-                temp1 = 250;//setting vertext to looks like 0,0
-            }
-            ctx.moveTo(temp1,temp2);//going to the vertex on the graph 
-            verx = temp1;//setting the vertex cordinates 
-            very = temp2;//setting the vertex cordinates 
-            prex = verx;//setting previous point 
-            prey = very;//setting previous point 
-            graphequations();   
-        //Finding the vertex in the graph END
+    if(a != 0){
+        var i = 0;
+        ctx.strokeStyle = '#000000';
+        do{
+            ctx.moveTo(i,0);  // these 2 lines are for the y axis
+            ctx.lineTo(i,500);//
+            i = i + 25;
+            ctx.stroke();//drawing the lines it self
+        }while(i < 500 || i == 500);
+        var i = 0;
+        do{
+            ctx.moveTo(0,i);  // these 2 lines are for the y axis
+            ctx.lineTo(500,i);//
+            i = i + 25;
+            ctx.stroke();//drawing the lines it self
+        }while(i < 500 || i == 500);
+            //Add determining scaling code here START
+                scalingandlabeling();
+            //Add determining scaling code here END
+                graphrules();
+            //Finding the vertex in the graph SATRT
+                if(temp2 == 0 && temp1 == 0){// checking if vertex is 0,0
+                    temp2 = 250;//setting vertext to looks like 0,0
+                    temp1 = 250;//setting vertext to looks like 0,0
+                }
+                ctx.moveTo(temp1,temp2);//going to the vertex on the graph 
+                verx = temp1;//setting the vertex cordinates 
+                very = temp2;//setting the vertex cordinates 
+                prex = verx;//setting previous point 
+                prey = very;//setting previous point 
+                graphequations();   
+            //Finding the vertex in the graph END
+    }
 }
 function scalingandlabeling(){
     var h = document.getElementById("plane");//locating graph

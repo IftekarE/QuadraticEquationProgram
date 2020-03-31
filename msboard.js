@@ -22,7 +22,7 @@ function notifications(){
 }
 function notification0(){//this displayes when the user clicks the button 
     idhold0 = 0;
-    meshold0 = "If you want to run the program again, enter new values and then click the button. The graph supports a maximum X range of -1000 - 1000, and a maximum Y range of -1000 - 1000"
+    meshold0 = "Enter values and then click the button to run program. The graph supports a maximum and minimum Domain (x) of [-1000 , 1000]; and maximum and minimum Range (y) of [-1000 , 1000]."
     idhold0 = document.getElementById("can0");
     idhold0.innerHTML = meshold0;
 }

@@ -123,3 +123,7 @@ ul{/*this is the list tag*/
 #nameuser{/*this is the input tag*/
     border-radius: 5px;
 }
+.MSG1{
+    width: 210px;
+    height: 150px;
+}
